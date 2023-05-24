@@ -11,6 +11,8 @@ private:
 	cv::Size maxSize;
 	std::vector<std::vector<cv::Mat>> imgs;
 
+	int curr_col;
+
 
 public:
 
@@ -25,8 +27,9 @@ public:
 	~Cards() = default;
 
 	Cards& operator<<(cv::Mat&);
+	Cards& operator<<(cv::Mat&&);
 
-	const size_t& maxLenght() const noexcept { return size_t(maxColls) * maxRows; };
+	const size_t& maxLenght() const noexcept { return size_t(maxColls * maxRows); };
 
 	void show() noexcept;
 };
